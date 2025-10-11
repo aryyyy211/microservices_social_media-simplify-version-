@@ -2,15 +2,18 @@ package com.charllson.userservice.service;
 
 import com.charllson.userservice.dto.FollowDto;
 import com.charllson.userservice.dto.UserResponseDto;
+import com.charllson.userservice.event.UserFollowedEvent;
 import com.charllson.userservice.model.Follow;
 import com.charllson.userservice.model.User;
 import com.charllson.userservice.repository.FollowRepository;
 import com.charllson.userservice.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,6 +23,7 @@ import java.util.stream.Collectors;
 public class FollowService {
     private final FollowRepository followRepository;
     private final UserRepository userRepository;
+    private final KafkaTemplate<String, UserFollowedEvent> kafkaTemplate;
 
     @Transactional
     public FollowDto followUser(Long followerId, Long followingId) {
@@ -49,7 +53,17 @@ public class FollowService {
         log.info("User {} successfully followed user {}", followerId, followingId);
 
         //publish kafka event
+        UserFollowedEvent event = UserFollowedEvent.builder()
+                .followerId(followerId)
+                .followingId(followingId)
+                .followerUsername(follower.getUsername())
+                .followingUsername(following.getUsername())
+                .eventTime(LocalDateTime.now())
+                .build();
 
+        kafkaTemplate.send("user-followed-topic", event);
+        log.info("Published UserFollowedEvent to Kafka: {} followed {}",
+                follower.getUsername(), following.getUsername());
 
         return mapToFollowDto(savedFollow, follower.getUsername(), following.getUsername());
 

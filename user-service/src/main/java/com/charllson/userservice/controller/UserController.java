@@ -37,6 +37,9 @@ public class UserController {
     @GetMapping("/{userId}")
     public ResponseEntity<UserResponseDto> getUserById(@PathVariable Long userId) {
         log.info("GET /api/users/{} - Fetching user", userId);
+        Object serverPort;
+//        log.info("🔥 Instance on port {} handling request for user {}",
+//                serverPort, userId);
         UserResponseDto userResponse = userService.getUserById(userId);
         return ResponseEntity.ok(userResponse);
     }
