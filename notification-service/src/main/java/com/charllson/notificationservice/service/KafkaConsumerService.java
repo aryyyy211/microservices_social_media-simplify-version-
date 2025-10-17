@@ -2,6 +2,7 @@ package com.charllson.notificationservice.service;
 
 import com.charllson.notificationservice.event.PostCreatedEvent;
 import com.charllson.notificationservice.event.UserFollowedEvent;
+import com.charllson.notificationservice.event.PostLikedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -53,6 +54,30 @@ public class KafkaConsumerService {
 
         // Future: Get followers and notify them
         // notificationService.createNotification(...);
+    }
+
+    /**
+    * 🔥🔥 CONSUMER #2: Listen to post-liked-topic
+    * When someone like a post, notify their followers (future enhancement)
+     */
+    @KafkaListener(topics = "post-liked-topic", groupId = "notification-service")
+    public void consumePostLikedEvent(PostLikedEvent event) {
+        log.info("❤️ Received PostLikedEvent: {} liked post {}",
+                event.getUsername(), event.getPostId());
+
+        // Notify post owner that someone liked their post
+        String message = String.format("%s liked your post!", event.getUsername());
+
+        notificationService.createNotification(
+                event.getPostOwnerId(),  // Notify the post owner
+                "POST_LIKED",
+                message,
+                event.getUserId(),       // Who liked it
+                event.getPostId()        // Which post
+        );
+
+        log.info("✅ Notification created for post owner {} (post liked by {})",
+                event.getPostOwnerId(), event.getUsername());
     }
 
 }
